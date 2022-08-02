@@ -1,6 +1,15 @@
-.hello {
-  color: red;
-  font-size: 3rem;
-  background: url('./icon.png');
-  background-repeat: no-repeat;
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Lobster&family=Press+Start+2P&family=Rokkitt:wght@100;300;400;500;600;700;800;900&display=swap");
+
+/* CSS variables */ 
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --red-munsell: #FF0045ff;
+  --robin-egg-blue: #00CEC8ff;
+  --fuchsia-crayola: #AC5AB8ff;
+  --chrome-yellow: #FFAA00ff;
+  --camel: #C8A05Aff;
+  --font-title: "Press Start 2P", cursive;
+  --font-text: "Press Start 2P", cursive;
+  --font-button: 
 }
