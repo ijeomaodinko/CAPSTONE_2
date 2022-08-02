@@ -1,15 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Lobster&family=Press+Start+2P&family=Rokkitt:wght@100;300;400;500;600;700;800;900&display=swap");
 
-/* CSS variables */ 
+/* CSS variables */
 :root {
   --white-color: #fff;
   --black-color: #000;
-  --red-munsell: #FF0045ff;
-  --robin-egg-blue: #00CEC8ff;
-  --fuchsia-crayola: #AC5AB8ff;
-  --chrome-yellow: #FFAA00ff;
-  --camel: #C8A05Aff;
-  --font-title: "Press Start 2P", cursive;
-  --font-text: "Press Start 2P", cursive;
-  --font-button: 
+  --red-munsell: #ff0045ff;
+  --robin-egg-blue: #00cec8ff;
+  --fuchsia-crayola: #ac5ab8ff;
+  --chrome-yellow: #ffaa00ff;
+  --camel: #c8a05aff;
+  --font-title: "Lobster", cursive;
+  --font-text: "Rokkitt", serif;
+  --font-button: "Audiowide", cursive;
+}
+
+/* 
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--white-color);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--black-color);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
