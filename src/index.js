@@ -1,8 +1,6 @@
 import './style.css';
-//import showListItem from './modules/showListItem.js';
-import getShows from './modules/getShows.js';
+import showListItem from './modules/showListItem.js';
 
-window.addEventListener('load', async()=>{
-  const shows = await getShows();
-  console.log('Request'+shows);
+window.addEventListener('load', async () => {
+  showListItem();
 });

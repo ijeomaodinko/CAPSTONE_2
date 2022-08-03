@@ -4,10 +4,11 @@ import getShows from './getShows.js';
 
 const showListItem = async () => {
   cleanElement('#items_container');
-  const items_container = document.querySelector('#items_container');
+  const itemsContainer = document.querySelector('#items_container');
   const shows = await getShows();
   shows.forEach((show) => {
-    items_container.appendChild(createItem(show));
+    // console.log(show.image.medium);
+    itemsContainer.appendChild(createItem(show));
   });
 };
 
