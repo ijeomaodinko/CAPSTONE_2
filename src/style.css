@@ -2,13 +2,13 @@
 
 /* CSS variables */
 :root {
-  --white-color: #fff;
-  --black-color: #000;
-  --red-munsell: #ff0045;
-  --robin-egg-blue: #00cec8;
-  --fuchsia-crayola: #ac5ab8;
-  --chrome-yellow: #ffaa00;
-  --camel: #c8a05a;
+  --white-color: rgb(255, 255, 255);
+  --black-color: rgb(0, 0, 0);
+  --red-munsell: rgb(255, 0, 55);
+  --robin-egg-blue: rgb(0, 206, 200);
+  --fuchsia-crayola: rgb(172, 90, 184);
+  --chrome-yellow: rgb(255, 170, 0);
+  --camel: rgb(200, 160, 90);
   --font-title: "Lobster", cursive;
   --font-text: "Rokkitt", serif;
   --font-button: "Audiowide", cursive;
