@@ -4,11 +4,11 @@
 :root {
   --white-color: #fff;
   --black-color: #000;
-  --red-munsell: #ff0045ff;
-  --robin-egg-blue: #00cec8ff;
-  --fuchsia-crayola: #ac5ab8ff;
-  --chrome-yellow: #ffaa00ff;
-  --camel: #c8a05aff;
+  --red-munsell: #ff0045;
+  --robin-egg-blue: #00cec8;
+  --fuchsia-crayola: #ac5ab8;
+  --chrome-yellow: #ffaa00;
+  --camel: #c8a05a;
   --font-title: "Lobster", cursive;
   --font-text: "Rokkitt", serif;
   --font-button: "Audiowide", cursive;
