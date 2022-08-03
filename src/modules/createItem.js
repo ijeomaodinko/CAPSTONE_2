@@ -50,3 +50,5 @@ const createItem = (show) => {
 
     return divShow;
 }
+
+export default createItem;
