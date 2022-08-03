@@ -98,7 +98,7 @@ nav {
 }
 
 /* Main content */
-#items_section{
+#items_section {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
