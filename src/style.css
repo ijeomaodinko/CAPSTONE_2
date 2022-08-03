@@ -96,3 +96,10 @@ nav {
 #link_dates {
   color: var(--camel);
 }
+
+/* Main content */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
