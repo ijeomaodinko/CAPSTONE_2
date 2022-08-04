@@ -188,7 +188,7 @@ img.parallel {
   width: 40rem;
   margin: 2rem;
   border: 3rem solid white;
-  box-shadow: 0 2rem 5rem 1rem #ac5ab8ff; */
+  box-shadow: 0 2rem 5rem 1rem #ac5ab8ff;
 }
 
 .footer {
@@ -208,11 +208,11 @@ img.parallel {
 }
 
 .writeComments {
- display: flex;
- flex-direction: column;
- align-content: center;
- justify-content: space-between;
- margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: 1rem;
 }
 
 input {
@@ -222,11 +222,13 @@ input {
 }
 
 .imovies {
- font-size: 19px;
+  font-size: 19px;
 }
+
 .writeComment {
   margin-bottom: 0;
 }
+
 .close {
   text-align: right;
   font-size: 6rem;
