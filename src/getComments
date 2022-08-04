@@ -1,8 +1,8 @@
 import getShows from '../modules/getShows';
 import getRequestOptions from '../modules/getRequest';
 
-// to retrieve comments
-    get_comments() {
+// to retrieve comments from api
+    getComments() {
       const commentBox = document.querySelector('.commentBox');
       const commentsCounter = document.querySelector('.commentsCounter');
       commentBox.innerHTML = '';
@@ -12,7 +12,8 @@ import getRequestOptions from '../modules/getRequest';
       response.then((result) => {
         if (result.length) {
           this.commentsArray = result;
-
+     
+         //to retrive item to comment box 
           this.commentsArray.forEach((comment) => {
             const html = `
              <p>
@@ -29,13 +30,17 @@ import getRequestOptions from '../modules/getRequest';
         throw new Error(error);
       });
       
+      //to add counter to comment 
       calculateCount= ()=> {
          return this.comments_array.length;
        }
-
+      
+       //to add date function
        const date = function () {
         const today = new Date();
         const presentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         return presentDate
        }
     }
+
+    export default getComments
