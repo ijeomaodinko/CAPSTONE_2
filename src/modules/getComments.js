@@ -1,5 +1,5 @@
 import getShows from '../modules/getShows';
-import getRequestOptions from '../modules/getRequest';
+import getRequestOptions from './getRequest.js';
 
 // to retrieve comments from api
   getComments() {
@@ -17,7 +17,7 @@ import getRequestOptions from '../modules/getRequest';
           this.commentsArray.forEach((comment) => {
             const html = `
              <p>
-              <span class="comments-date" >${comment.date()} </span>
+              <span class="comments-date" >${comment.comment.creation_date} </span>
               <span class="comments-username"><b>${comment.username}: </b></span>
               <span>${comment.comment} </span>
              </p>
@@ -31,16 +31,10 @@ import getRequestOptions from '../modules/getRequest';
       });
       
       //to add counter to comment 
-      calculateCount= ()=> {
+      calculateCount () => {
          return this.comments_array.length;
        }
       
-       //to add date function
-       const date = function () {
-        const today = new Date();
-        const presentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        return presentDate
-       }
     }
 
     export default getComments

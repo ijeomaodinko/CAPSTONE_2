@@ -121,18 +121,21 @@ nav {
   background-color: #fff;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
   font-size: 1.8rem;
-  width: 30rem;
+  width: 60%;
   border-radius: 0.7rem;
-  margin: 0 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .moviesImg {
-  width: 30rem;
-  height: 17rem;
+  width: 90%;
+  height: 29rem;
   object-fit: cover;
   background-color: #eee;
   border-top-left-radius: 0.7rem;
   border-top-right-radius: 0.7rem;
+  margin-left: 2rem;
+  margin-right: 0;
 }
 
 .moviesData {
@@ -164,11 +167,14 @@ nav {
 .btn_movies {
   border: none;
   font-size: 2rem;
-  padding: 2rem 5rem;
-  border-radius: 0.7rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
   color: white;
   background-color: #ff0045ff;
   cursor: pointer;
+  width: 60%;
+  margin-bottom: 6rem;
+  margin-top: 1rem;
 }
 
 img {
@@ -182,7 +188,7 @@ img.parallel {
   width: 40rem;
   margin: 2rem;
   border: 3rem solid white;
-  box-shadow: 0 2rem 5rem 1rem #ac5ab8ff;
+  box-shadow: 0 2rem 5rem 1rem #ac5ab8ff; */
 }
 
 .footer {
@@ -193,4 +199,37 @@ img.parallel {
   background-color: #ff0045ff;
   color: white;
   text-align: center;
+}
+
+.itotal {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.writeComments {
+ display: flex;
+ flex-direction: column;
+ align-content: center;
+ justify-content: space-between;
+ margin-left: 1rem;
+}
+
+input {
+  margin-top: 1rem;
+  width: 70%;
+  height: 1.5rem;
+}
+
+.imovies {
+ font-size: 19px;
+}
+.writeComment {
+  margin-bottom: 0;
+}
+.close {
+  text-align: right;
+  font-size: 6rem;
+  margin-right: 4rem;
+  margin-bottom: 0;
 }

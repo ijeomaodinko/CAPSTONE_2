@@ -1,10 +1,10 @@
 import getShows from '../modules/getShows.js';
-import getComments from  '../modules/getComments'
+import getComments from  './getComments.js'
 
 const btn = document.querySelector('.btn_comment');
 
 class CommentsPage {
-    URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zl4d7ivkemottvg2fudz/comments';
+    URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments';
 
     constructor(shows, btn) {
       [this.show] = shows.moviesarray.filter((show) => show.id === +btn.id);
@@ -25,19 +25,16 @@ class CommentsPage {
        <p class="moviesRow"><span></span>${this.show.summary}</p>
   </div>
   </article>
-  <div><img src=""/>
-  <i onclick="myFunction(this)" class="fa fa-heart" id="total_i"></i>
-  <p class="likesCounter">p<p></div>
   
-  <div class=comment_container>
-  <p class="comment_counter">p</p>
-  <div class=comment_box> </div>
+  <div class=commentContainer>
+  <p> Comments (<span class="commentCounter">p</span>)</p>
+  <div class=commentBox> </div>
   </div>
   
-  <div>
-  <p class="write_comment">Write Comment</p>
-  <input type="text" class="input_name"></input>
-  <input type="textarea" class="input_comment"></input>
+  <div class="writeComments">
+  <p class="writeComment">Write Comment</p>
+  <input type="text"  placeholder="Username" class="inputName"></input>
+  <input type="textarea" placeholder="Comment" class="inputComment"></input>
   <button type="button" class="btn btn_primary btn_movies">Comment</button>
   </div> 
   </section>`;
@@ -51,4 +48,3 @@ class CommentsPage {
   }
 
   //to add eventlistner to comment button
-  btn.addEventListener('click', renderMovies());
