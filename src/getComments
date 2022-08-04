@@ -2,7 +2,7 @@ import getShows from '../modules/getShows';
 import getRequestOptions from '../modules/getRequest';
 
 // to retrieve comments from api
-    getComments() {
+  getComments() {
       const commentBox = document.querySelector('.commentBox');
       const commentsCounter = document.querySelector('.commentsCounter');
       commentBox.innerHTML = '';
