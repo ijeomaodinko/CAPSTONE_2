@@ -1,4 +1,4 @@
-// Async function to get mistery shows
+// Async function to get horror shows
 const getShows = async () => {
   const response = await fetch('https://api.tvmaze.com/shows');
   const result = await response.json();

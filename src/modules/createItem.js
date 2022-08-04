@@ -1,16 +1,18 @@
 // Import icon
-import heart from '../heart.png';
+import like from '../like.png';
+import postLike from './postLike.js';
 
 // Function to create a div with show information
-const createItem = (show) => {
+const createItem = (show, likes) => {
   // Create elements
   const divShow = document.createElement('div');
   const divImg = document.createElement('div');
   const imgShow = document.createElement('img');
-  const divShowInfo = document.createElement('div');
+  const divShowTitle = document.createElement('div');
   const h3ShowTitle = document.createElement('h3');
-  const btnLike = document.createElement('input');
   const divLikes = document.createElement('div');
+  const numLikes = document.createElement('span');
+  const imgLike = document.createElement('img');
   const divButtons = document.createElement('div');
   const btnDetails = document.createElement('button');
   const btnComments = document.createElement('button');
@@ -18,22 +20,28 @@ const createItem = (show) => {
   // Add content and atributes
   divShow.classList.add('show');
 
+  // Show image
   divImg.classList.add('image_show');
   imgShow.src = show.image.medium;
   divImg.appendChild(imgShow);
 
-  divShowInfo.classList.add('info_show');
+  // Show title
+  divShowTitle.classList.add('info_show');
   h3ShowTitle.classList.add('title_show');
   h3ShowTitle.textContent = show.name;
-  btnLike.classList.add('btn_like');
-  btnLike.type = 'image';
-  btnLike.src = heart;
-  divShowInfo.appendChild(h3ShowTitle);
-  divShowInfo.appendChild(btnLike);
+  divShowTitle.appendChild(h3ShowTitle);
 
+  // Show likes
   divLikes.classList.add('likes_show');
-  divLikes.textContent = '5 likes';
+  numLikes.classList.add('num_likes');
+  const likesItem = likes.find((element) => element.item_id === show.id).likes;
+  numLikes.textContent = likesItem;
+  imgLike.classList.add('img_like');
+  imgLike.src = like;
+  divLikes.appendChild(numLikes);
+  divLikes.appendChild(imgLike);
 
+  // Show buttons
   divButtons.classList.add('options_show');
   btnDetails.textContent = 'See more';
   btnDetails.classList.add('btn_details');
@@ -43,10 +51,15 @@ const createItem = (show) => {
   divButtons.appendChild(btnComments);
 
   /// ADD EVENTS LISTENERS
+  imgLike.addEventListener('click', async () => {
+    postLike(show.id);
+    const likes = parseInt(numLikes.textContent, 10) + 1;
+    numLikes.textContent = likes;
+  });
 
   // Add child
   divShow.appendChild(divImg);
-  divShow.appendChild(divShowInfo);
+  divShow.appendChild(divShowTitle);
   divShow.appendChild(divLikes);
   divShow.appendChild(divButtons);
 
