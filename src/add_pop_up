@@ -1,0 +1,52 @@
+import getShows from '../modules/getShows.js';
+import getComments from  '../modules/getComments'
+
+const btn = document.querySelector('.btn_comment');
+
+class commentpage {
+    URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zl4d7ivkemottvg2fudz/comments';
+
+    constructor(shows, btn) {
+      [this.show] = shows.moviesarray.filter((show) => show.id === +btn.id);
+      this.getShows = new getShows(this.URL);
+      this.commentsArray = [];
+    }
+
+    renderMovies() {
+      const html = `
+  <section class="sectionModal">
+  <p>&times</p>
+  <article class="movies">
+  <img class="moviesImg" src="${this.show.image.medium}" />
+  <div class="movie_data">
+      <h3 class="moviesName">${this.show.name}</h3>
+      <div class="item1"> </div>
+       <p class="moviesRow"><span></span>${this.show.summary}</p>
+  </div>
+  </article>
+  <div><img src=""/>
+  <i onclick="myFunction(this)" class="fa fa-heart" id="total_i"></i>
+  <p class="likesCounter">p<p></div>
+  
+  <div class=comment_container>
+  <p class="comment_counter">p</p>
+  <div class=comment_box> </div>
+  </div>
+  
+  <div>
+  <p class="write_comment">Write Comment</p>
+  <input type="text" class="input_name"></input>
+  <input type="textarea" class="input_comment"></input>
+  <button type="button" class="btn btn_primary comment_popup-button">Comment</button>
+  </div> 
+  </section>`;
+
+      const commentPage = document.querySelector('.commentSection');
+      const popUp = commentPage.querySelector('.sectionModal');
+      popUp.innerHTML = html;
+
+      this.getComments();
+    }
+  }
+
+  btn.addEventListener('click', renderMovies());

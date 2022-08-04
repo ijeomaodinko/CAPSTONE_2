@@ -1,0 +1,41 @@
+import getShows from '../modules/getShows';
+import getRequestOptions from '../modules/getRequest';
+
+// to retrieve comments
+    get_comments() {
+      const commentBox = document.querySelector('.commentBox');
+      const commentsCounter = document.querySelector('.commentsCounter');
+      commentBox.innerHTML = '';
+
+      const response = this.getShows.getRequestOptions(`?item_id=${this.show.id}`);
+
+      response.then((result) => {
+        if (result.length) {
+          this.commentsArray = result;
+
+          this.commentsArray.forEach((comment) => {
+            const html = `
+             <p>
+              <span class="comments-date" >${comment.date()} </span>
+              <span class="comments-username"><b>${comment.username}: </b></span>
+              <span>${comment.comment} </span>
+             </p>
+             `;
+            commentBox.innerHTML += `${html}`;
+          });
+        }
+        commentsCounter.innerHTML = `Comments: ${this.calculateCount()}`;
+      }).catch((error) => {
+        throw new Error(error);
+      });
+      
+      calculateCount= ()=> {
+         return this.comments_array.length;
+       }
+
+       const date = function () {
+        const today = new Date();
+        const presentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        return presentDate
+       }
+    }
