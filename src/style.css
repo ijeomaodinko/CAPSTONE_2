@@ -124,9 +124,7 @@ nav {
 }
 
 .info_show {
-  display: flex;
-  justify-items: center;
-  align-items: center;
+  text-align: center;
 }
 
 .title_show {
@@ -137,7 +135,7 @@ nav {
   display: flex;
   align-items: center;
   justify-items: center;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 .num_likes {
@@ -145,6 +143,26 @@ nav {
   font-weight: bold;
 }
 
-button {
+.btn_show {
   cursor: pointer;
+  font-family: var(--font-button);
+  text-align: center;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--red-munsell);
+  color: var(--white-color);
+}
+
+.btn_show:hover {
+  border: 0.3rem solid var(--red-munsell);
+  background-color: var(--white-color);
+  color: var(--red-munsell);
+}
+
+.buttons_show {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }

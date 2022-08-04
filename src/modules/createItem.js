@@ -14,7 +14,7 @@ const createItem = (show, likes) => {
   const numLikes = document.createElement('span');
   const imgLike = document.createElement('img');
   const divButtons = document.createElement('div');
-  const btnDetails = document.createElement('button');
+  const btnReserve = document.createElement('button');
   const btnComments = document.createElement('button');
 
   // Add content and atributes
@@ -42,13 +42,13 @@ const createItem = (show, likes) => {
   divLikes.appendChild(imgLike);
 
   // Show buttons
-  divButtons.classList.add('options_show');
-  btnDetails.textContent = 'See more';
-  btnDetails.classList.add('btn_details');
+  divButtons.classList.add('buttons_show');
   btnComments.textContent = 'Comments';
-  btnComments.classList.add('btn_comments');
-  divButtons.appendChild(btnDetails);
+  btnComments.classList.add('btn_show');
+  btnReserve.textContent = 'Reserve';
+  btnReserve.classList.add('btn_show');
   divButtons.appendChild(btnComments);
+  divButtons.appendChild(btnReserve);
 
   /// ADD EVENTS LISTENERS
   imgLike.addEventListener('click', async () => {
