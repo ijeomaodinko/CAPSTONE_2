@@ -1,5 +1,5 @@
 // Import icon
-// import heart from '../heart.png';
+import heart from '../heart.png';
 
 // Function to create a div with show information
 const createItem = (show) => {
@@ -9,7 +9,7 @@ const createItem = (show) => {
   const imgShow = document.createElement('img');
   const divShowInfo = document.createElement('div');
   const h3ShowTitle = document.createElement('h3');
-  const btnLike = document.createElement('button');
+  const btnLike = document.createElement('input');
   const divLikes = document.createElement('div');
   const divButtons = document.createElement('div');
   const btnDetails = document.createElement('button');
@@ -26,6 +26,8 @@ const createItem = (show) => {
   h3ShowTitle.classList.add('title_show');
   h3ShowTitle.textContent = show.name;
   btnLike.classList.add('btn_like');
+  btnLike.type = 'image';
+  btnLike.src = heart;
   divShowInfo.appendChild(h3ShowTitle);
   divShowInfo.appendChild(btnLike);
 

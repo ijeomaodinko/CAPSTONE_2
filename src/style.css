@@ -4,6 +4,7 @@
 :root {
   --white-color: rgb(255, 255, 255);
   --black-color: rgb(0, 0, 0);
+  --blue-color: rgba(20, 5, 226);
   --red-munsell: rgb(255, 0, 55);
   --robin-egg-blue: rgb(0, 206, 200);
   --fuchsia-crayola: rgb(172, 90, 184);
@@ -109,4 +110,40 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.show{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.2rem;
+  border: 0.1rem outset var(--white-color);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.info_show{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.title_show{
+  color: var(--blue-color);
+  align-self: flex-start;
+  flex: 2;
+}
+
+button{
+  cursor: pointer;
+}
+
+.btn_like{
+  border: none;
+  background: url(./heart.png);
+  flex: 1;
+  align-self: center;
 }
