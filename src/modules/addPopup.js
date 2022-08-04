@@ -95,4 +95,24 @@ getComments = () => {
   calculateCount = () => this.commentsArray.length
 }
 
+const commentPopupEvent = () => {
+  const allCommentButtons = document.querySelectorAll('.btn');
+
+  allCommentButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const commentModal1 = document.querySelector('.btn');
+      commentModal1.renderMovies();
+
+      const addComment = document.querySelector('.btn_movies');
+      addComment.addEventListener('click', () => {
+        const commentModal1 = document.querySelector('btn_movies');
+        commentModal1.sendComment();
+      });
+    });
+  });
+  setTimeout(commentPopupEvent, 15);
+};
+
+commentPopupEvent();
+
 export default commentsPage;

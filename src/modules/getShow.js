@@ -14,7 +14,7 @@ getRequestOptions=(queryParams) => {
     .catch((error) => error);
 };
 
-postRequestWithOptions = function (id, username, message) {
+postRequestWithOptions = (id, username, message) => {
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
 
