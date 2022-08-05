@@ -1,5 +1,5 @@
-// Async function to post a new game in the API
-const postNewGame = async () => {
+// Async function to post a new app in the API involvement
+const postApp = async () => {
   const appId = await fetch(
     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/',
     {
@@ -19,4 +19,4 @@ const postNewGame = async () => {
   return appId;
 };
 
-export default postNewGame;
+export default postApp;

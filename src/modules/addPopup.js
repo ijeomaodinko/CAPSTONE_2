@@ -1,130 +1,105 @@
-import GetShow from "./getShow.js";
+import getComments from "./getComments.js";
+import cancel from "../cancel.png";
+import getShowById from "./getShowById.js";
 
-// const btn = document.querySelector('.btn_comment');
+// To create template to render the items in the modal
+const renderModal = async (id) => {
+  //Get show
+  const show = await getShowById(id);
+  console.log(show);
+  //Create modal content
 
-class commentsPage {
-  URL =
-    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments";
+  // Create elements
+  const divShowModal = document.createElement("div");
 
-  // To create template to render the items in the modal
-  static renderMovies(show) {
+  const divImgModal = document.createElement("div");
+  const imgClose = document.createElement("img");
+  const imgShowModal = document.createElement("img");
+
+  const divShowInfo = document.createElement("div");
+  const h3ShowTitle = document.createElement("h3");
+  const pSummary = document.createElement('p');
   
-    //Create modal content
-    const html = `
-  <div class="sectionModal">
-  <p class="close">&times</p>
-  <article class="movies">
-  <img class="moviesImg" src="${show.image.medium}" />
-  <div class="movieData">
-      <h3 class="moviesName">${show.name}</h3>
-      <div class="item1"> </div>
-       <p class="moviesRow"><span></span>${show.summary}</p>
-  </div>
-  </article>
+  const divComments = document.createElement("div");
+  const numComments = document.createElement('span');
+  const ulComments = document.createElement("ul");
   
-  <div class=commentContainer>
-  <p> Comments (<span class="commentCounter">p</span>)</p>
-  <div class=commentBox> </div>
-  </div>
-  
-  <div class="writeComments">
-  <p class="writeComment">Write Comment</p>
-  <input type="text"  placeholder="Username" class="inputName"></input>
-  <input type="textarea" placeholder="Comment" class="inputComment"></input>
-  <button type="button" class="btn btn_primary btn_movies">Comment</button>
-  </div> 
-  </div>`;
+  const divAddComment = document.createElement("div");
+  const inpName = document.createElement('input');
+  const inpComment = document.createElement('input');
+  const btnComment = document.createElement("button");
 
-    //Get the dom element to the modal
-    const commentsPage = document.querySelector(".commentSection");
+  // Add content and atributes
+  divShowModal.classList.add('modal');
 
-    //Add the content
-    commentsPage.innerHTML = html;
+  // Show image
+  divImgModal.classList.add("imageModal");
+  imgShowModal.src = show.image.medium;
+  imgClose.classList.add("closeModal");
+  imgClose.src = cancel;
+  divImgModal.appendChild(imgClose);
+  divImgModal.appendChild(imgShowModal);
+ 
+  // Show details
+  divShowInfo.classList.add("detailsShow");
+  h3ShowTitle.classList.add("title_show");
+  h3ShowTitle.textContent = show.name;
+  pSummary.classList.add('sumShow');
+  pSummary.textContent = show.summary;
+  divShowInfo.appendChild(h3ShowTitle);
 
-    //Show the modal
-    commentsPage.classList.add("showUp");
-    window.onclick = function (event) {
-      if (event.target === commentsPage) {
-        commentsPage.classList.remove("showUp");
-      }
-    };
-
-    this.getComments();
-  }
-
-  // to retrieve comments from api
-  getComments = () => {
-    const commentBox = document.querySelector(".commentBox");
-    const commentsCounter = document.querySelector(".commentsCounter");
-    commentBox.innerHTML = "";
-
-    const response = this.getShows.getRequestOptions(
-      `?item_id=${this.show.id}`
-    );
-
-    response
-      .then((result) => {
-        if (result.length) {
-          this.commentsArray = result;
-
-          // to retrive item to comment box
-          this.commentsArray.forEach((comment) => {
-            const html = `
-             <p>
-              <span class="comments-date" >${comment.creation_date} </span>
-              <span class="comments-username"><b>${comment.username}: </b></span>
-              <span>${comment.comment} </span>
-             </p>
-             `;
-            commentBox.innerHTML += `${html}`;
-          });
-        }
-        commentsCounter.innerHTML = `Comments: ${this.calculateCount()}`;
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  };
-
-  static sendComment = (id) => {
-    const userId = document.querySelector(".inputName");
-    const commentUsers = document.querySelector("inputComment");
-
-    if (userId.value && commentUsers.value) {
-      this.getShows
-        .postRequestWithOptions(id, userId.value, commentUsers.value)
-        .then(() => {
-          userId.value = "";
-
-          commentUsers.value = "";
-
-          this.getComments();
-        });
-    }
-  };
-
-  // to add counter to comment
-  calculateCount = () => this.commentsArray.length;
-}
-
-const commentPopupEvent = () => {
-  const allCommentButtons = document.querySelectorAll(".btn");
-
-  allCommentButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const commentModal1 = document.querySelector(".btn");
-      commentModal1.renderMovies(this.show);
-
-      const addComment = document.querySelector(".btn_movies");
-      addComment.addEventListener("click", () => {
-        const commentModal1 = document.querySelector("btn_movies");
-        commentModal1.sendComment();
-      });
+  // Show comments
+  divComments.classList.add("comments_show");
+  numComments.classList.add("num_likes");
+  const comments = await getComments(show.id);
+  if(comments.lenght > 0){
+    numComments.innerText = `Comments (${comments.lenght})`;
+    ulComments.classList.add('commentsList');
+    array.forEach(element => {
+      const liComment = document.createElement('li');
+      //liComment.classList('comment');
+      liComment.innerText = `${comments[i].creation_date} ${comments[i].username}: ${comments[i].comment}`;
+      ulComments.appendChild(liComment);
     });
-  });
-  setTimeout(commentPopupEvent, 15);
+  }else{
+    numComments.innerText = 'Comments (0)';
+  }
+  divComments.appendChild(numComments);
+  divComments.appendChild(ulComments);
+
+  // Add comments
+  divAddComment.classList.add("writeComments");
+  inpName.classList.add('inputName');
+  inpName.placeholder = 'Username';
+  inpName.type = 'text';
+  inpComment.classList.add('inputComment');
+  inpComment.placeholder = 'Comment';
+  inpName.type = 'textarea';
+  btnComment.classList.add('btn_show');
+  btnComment.type = 'button';
+  btnComment.textContent = "Comment";
+  divAddComment.appendChild(inpName);
+  divAddComment.appendChild(inpComment);
+  divAddComment.appendChild(btnComment);
+
+  divShowModal.appendChild(divImgModal);
+  divShowModal.appendChild(divShowInfo);
+  divShowModal.appendChild(divComments);
+  divShowModal.appendChild(divAddComment);
+
+   /// ADD EVENTS LISTENERS
+
+   //Get the dom element to the modal
+   const commentsPage = document.querySelector(".commentSection");
+   //Add the content
+   commentsPage.appendChild(divShowModal);
+   //Show the modal
+   commentsPage.classList.add("showUp");
+   window.onclick = function (event) {
+     if (event.target === commentsPage) {
+       commentsPage.classList.remove("showUp");
+     }
+   };
 };
 
-commentPopupEvent();
-
-export default commentsPage;
+export default renderModal;
