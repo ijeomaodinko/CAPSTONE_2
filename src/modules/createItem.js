@@ -2,6 +2,7 @@
 import like from "../like.png";
 import postLike from "./postLike.js";
 import renderModal from "./addPopup.js";
+import cleanElement from "./cleanElement";
 
 // Function to create a div with show information
 const createItem = (show, likes) => {
@@ -62,7 +63,7 @@ const createItem = (show, likes) => {
 
   //Show modal
   btnComments.addEventListener("click", () => {
-    console.log(show.id);
+    cleanElement('.modal');
     renderModal(show.id);
   });
 
