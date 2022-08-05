@@ -4,6 +4,7 @@
 :root {
   --white-color: rgb(255, 255, 255);
   --black-color: rgb(0, 0, 0);
+  --blue-color: rgba(20, 5, 226);
   --red-munsell: rgb(255, 0, 55);
   --robin-egg-blue: rgb(0, 206, 200);
   --fuchsia-crayola: rgb(172, 90, 184);
@@ -53,13 +54,13 @@ a:focus {
 /* Header */
 header {
   width: 100%;
-  position: sticky;
 }
 
 nav {
   width: 100%;
   height: 5rem;
   background-color: var(--black-color);
+  position: sticky;
 }
 
 #nav-bar {
@@ -98,10 +99,72 @@ nav {
 }
 
 /* Main content */
+#items_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.1rem;
+  border: 0.1rem outset var(--white-color);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.info_show {
+  text-align: center;
+}
+
+.title_show {
+  color: var(--blue-color);
+}
+
+.likes_show {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.num_likes {
+  color: var(--red-munsell);
+  font-weight: bold;
+}
+
+.btn_show {
+  cursor: pointer;
+  font-family: var(--font-button);
+  text-align: center;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--red-munsell);
+  color: var(--white-color);
+}
+
+.btn_show:hover {
+  border: 0.3rem solid var(--red-munsell);
+  background-color: var(--white-color);
+  color: var(--red-munsell);
+}
+
+.buttons_show {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .section {
@@ -234,4 +297,3 @@ input {
   font-size: 6rem;
   margin-right: 4rem;
   margin-bottom: 0;
-}
