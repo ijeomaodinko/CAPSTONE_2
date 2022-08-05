@@ -2,6 +2,7 @@
 import like from "../like.png";
 import postLike from "./postLike.js";
 import commentsPage from "./addPopup.js";
+import getShows from './getShows.js';
 
 // Function to create a div with show information
 const createItem = (show, likes) => {
@@ -62,6 +63,10 @@ const createItem = (show, likes) => {
 
   //Show modal
   btnComments.addEventListener("click", () => {
+    // Get show from TVMaze API
+    //const shows = await getShows();
+    //Create objcet commentsPage
+    //const comments = new commentsPage(shows,show.id);
     commentsPage.renderMovies(show);
   });
 

@@ -6,14 +6,9 @@ class commentsPage {
   URL =
     "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments";
 
-  constructor(shows, btn) {
-    [this.show] = shows.moviesarray.filter((show) => show.id === +btn.id);
-    this.GetShow = new GetShow(this.URL);
-    this.commentsArray = [];
-  }
   // To create template to render the items in the modal
-
   static renderMovies(show) {
+  
     //Create modal content
     const html = `
   <div class="sectionModal">
@@ -54,7 +49,7 @@ class commentsPage {
       }
     };
 
-    //this.getComments();
+    this.getComments();
   }
 
   // to retrieve comments from api
@@ -91,13 +86,13 @@ class commentsPage {
       });
   };
 
-  sendComment = () => {
+  static sendComment = (id) => {
     const userId = document.querySelector(".inputName");
     const commentUsers = document.querySelector("inputComment");
 
     if (userId.value && commentUsers.value) {
       this.getShows
-        .postRequestWithOptions(this.show.id, userId.value, commentUsers.value)
+        .postRequestWithOptions(id, userId.value, commentUsers.value)
         .then(() => {
           userId.value = "";
 
@@ -118,7 +113,7 @@ const commentPopupEvent = () => {
   allCommentButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const commentModal1 = document.querySelector(".btn");
-      commentModal1.renderMovies();
+      commentModal1.renderMovies(this.show);
 
       const addComment = document.querySelector(".btn_movies");
       addComment.addEventListener("click", () => {
@@ -130,6 +125,6 @@ const commentPopupEvent = () => {
   setTimeout(commentPopupEvent, 15);
 };
 
-//commentPopupEvent();
+commentPopupEvent();
 
 export default commentsPage;
