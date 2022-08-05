@@ -180,6 +180,26 @@ nav {
   transition: opacity 1s;
 }
 
+.commentSection {
+  background-color: rgba(26, 34, 54, 0.95);
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: none;
+}
+
+.showUp {
+  display: flex;
+  flex-direction: column;
+}
+
 .sectionModal {
   background-color: #fff;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);

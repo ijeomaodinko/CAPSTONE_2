@@ -1,6 +1,7 @@
 // Import icon
 import like from "../like.png";
 import postLike from "./postLike.js";
+import commentsPage from "./addPopup.js";
 
 // Function to create a div with show information
 const createItem = (show, likes) => {
@@ -60,8 +61,8 @@ const createItem = (show, likes) => {
   });
 
   //Show modal
-  btnComments.addEventListener("click", async () => {
-    
+  btnComments.addEventListener("click", () => {
+    commentsPage.renderMovies(show);
   });
 
   // Add child
