@@ -2,6 +2,7 @@ import getComments from "./getComments.js";
 import cancel from "../cancel.png";
 import getShowById from "./getShowById.js";
 import postComment from "./postComment.js";
+import cleanElement from "./cleanElement.js";
 
 // To create template to render the items in the modal
 const renderModal = async (id) => {
@@ -20,7 +21,6 @@ const renderModal = async (id) => {
   const divShowInfo = document.createElement("div");
   const h3ShowTitle = document.createElement("h3");
   const pSummary = document.createElement("p");
-
 
   const divComments = document.createElement("div");
   const numComments = document.createElement("span");
@@ -112,7 +112,16 @@ const renderModal = async (id) => {
     const name = document.querySelector(".inputName").value;
     const comment = document.querySelector(".inputComment").value;
     if (name !== "" && comment !== "") {
-      await postComment(id,name,comment);
+      await postComment(id, name, comment);
+      cleanElement('.commentsList');
+      const itemComments = await getComments(id);
+      for (let i = 0; i < itemComments.length; i += 1) {
+        const ul = document.querySelector(".commentsList");
+        const e = itemComments[i];
+        const li = document.createElement("li");
+        li.innerText = `${e.creation_date} ${e.username}: ${e.comment}`;
+        ul.appendChild(li);
+      }
     }
   });
 };
