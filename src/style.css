@@ -60,7 +60,6 @@ nav {
   width: 100%;
   height: 5rem;
   background-color: var(--black-color);
-  position: sticky;
 }
 
 #nav-bar {
@@ -104,6 +103,7 @@ nav {
   justify-content: center;
   margin-top: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .wrapper {
@@ -240,7 +240,7 @@ nav {
   margin-top: 1rem;
 }
 
-img {
+/*img {
   display: flex;
   display: block;
   width: 80rem;
@@ -252,10 +252,10 @@ img.parallel {
   margin: 2rem;
   border: 3rem solid white;
   box-shadow: 0 2rem 5rem 1rem #ac5ab8ff;
-}
+}*/
 
 .footer {
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -297,3 +297,4 @@ input {
   font-size: 6rem;
   margin-right: 4rem;
   margin-bottom: 0;
+}
