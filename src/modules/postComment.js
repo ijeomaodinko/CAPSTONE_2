@@ -1,19 +1,18 @@
 const postComment = async (id, userName, userComment) => {
   await fetch(
-    "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments",
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments',
     {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({
         item_id: id,
         username: userName,
         comment: userComment,
       }),
-    }
+    },
   );
-  console.log(userName);
 };
 
 export default postComment;
