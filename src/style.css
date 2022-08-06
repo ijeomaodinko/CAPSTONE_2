@@ -256,8 +256,9 @@ nav {
   align-items: center;
   justify-items: center;
   width: 100%;
-  gap: 1rem;
+  gap: 0.3rem;
   padding: 2rem;
+  margin-bottom: 1rem;
 }
 
 .detDiv {
