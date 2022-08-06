@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Horror Hour TV Shows
 
 This project contains codes that enables users get from and add data to the API. It shows information about movie shows. People can browse through, like and comment. The count of likes and count are registed.
 

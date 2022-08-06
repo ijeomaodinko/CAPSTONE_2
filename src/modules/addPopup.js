@@ -70,6 +70,7 @@ const renderModal = async (id) => {
     ulComments.classList.add('commentsList');
     comments.forEach((e) => {
       const liComment = document.createElement('li');
+      liComment.classList.add('itemComment');
       liComment.innerText = `${e.creation_date} ${e.username}: ${e.comment}`;
       ulComments.appendChild(liComment);
     });
