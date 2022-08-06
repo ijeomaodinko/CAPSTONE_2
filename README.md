@@ -13,10 +13,9 @@ This project contains codes that enables users get from and add data to the API.
 - VsCode
 - Webpack
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
-
+[Live Demo Link](https://ijeomaodinko.github.io/CAPSTONE_2/dist/)
 
 # Getting Started
 
