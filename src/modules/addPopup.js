@@ -21,6 +21,9 @@ const renderModal = async (id) => {
   const divShowInfo = document.createElement('div');
   const h3ShowTitle = document.createElement('h3');
   const pSummary = document.createElement('p');
+  const ulDetails = document.createElement('ul');
+  const liDet1 = document.createElement('li');
+  const liDet2 = document.createElement('li');
 
   const divComments = document.createElement('div');
   const numComments = document.createElement('span');
@@ -48,8 +51,15 @@ const renderModal = async (id) => {
   h3ShowTitle.innerText = show.name;
   pSummary.classList.add('sumShow');
   pSummary.innerText = show.summary;
+  ulDetails.classList.add('gridShow');
+  liDet1.classList.add('detDiv');
+  liDet2.classList.add('detDiv');
+  liDet1.innerHTML = `<div><p>Premiered:${show.premiered}</p></div><div><p>Language:${show.language}</p></div>`;
+  liDet2.innerHTML = `<div><p>Ended:${show.ended}</p></div><div><p>Status:${show.status}</p></div>`;
+  ulDetails.appendChild(liDet1);
+  ulDetails.appendChild(liDet2);
   divShowInfo.appendChild(h3ShowTitle);
-  divShowInfo.appendChild(pSummary);
+  divShowInfo.appendChild(ulDetails);
 
   // Show comments
   divComments.classList.add('comments_show');
