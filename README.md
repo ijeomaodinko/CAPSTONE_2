@@ -1,37 +1,104 @@
-## Welcome to GitHub Pages
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-You can use the [editor on GitHub](https://github.com/ijeomaodinko/CAPSTONE_2/edit/develop/README.md) to maintain and preview the content for your website in Markdown files.
+# Horror Hour TV Shows
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This project contains codes that enables users get from and add data to the API. It shows information about movie shows. People can browse through, like and comment. The count of likes and count are registed.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Built With
 
-```markdown
-Syntax highlighted code block
+- HTML
+- CSS
+- Javascript
+- VsCode
+- Webpack
 
-# Header 1
-## Header 2
-### Header 3
+## Live Demo (if available)
 
-- Bulleted
-- List
+[Live Demo Link](https://livedemo.com)
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+# Getting Started
 
-[Link](url) and ![Image](src)
-```
+To get a local copy up and running follow these simple example steps.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Open your console. Run the following 
 
-### Jekyll Themes
+If you are using HTTPS
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ijeomaodinko/CAPSTONE_2/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    "git clone https://github.com/ijeomaodinko/CAPSTONE_2.git" 
 
-### Support or Contact
+If you are using a SSH key.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    "git clone git@github.com:ijeomaodinko/CAPSTONE_2.git" 
+
+
+Press ENTER to create your local clone. After creating it, you can open the page by opening with Visual Studio Code. 
+
+
+Typing    npm run start on the terminal and  open the dist folder and click on the index.html file.
+
+
+### Prerequisites
+- A modern web browser like Chrome, Safari, Firefox, etc.
+- JavaScript enabled.
+
+
+### Installation and Setup
+Install Node Modules ithrough the terminal 
+
+    npm install 
+
+
+### Build the Development Serve 
+
+    npm run build
+
+
+### Run Tests
+
+To run test on the test files used:
+
+    npm test 
+
+
+## Authors
+
+👤 **Ijeoma Odinko**
+
+- GitHub: [@githubhandle](https://github.com/ijeomaodinko)
+- Twitter: [@twitterhandle](https://twitter.com/iodinko)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/ijeomaodinko)
+
+
+👤 **Vanessa Bonito**
+
+- GitHub: [@githubhandle](https://github.com/githubhandle)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.
+
+_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._

@@ -1,118 +1,141 @@
-import GetShow from './getShow.js';
+import getComments from './getComments.js';
+import cancel from '../cancel.png';
+import getShowById from './getShowById.js';
+import postComment from './postComment.js';
+import cleanElement from './cleanElement.js';
 
-// const btn = document.querySelector('.btn_comment');
+// To create template to render the items in the modal
+const renderModal = async (id) => {
+  // Get show
+  const show = await getShowById(id);
 
-class commentsPage {
-    URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/tC8kuxLLK9p84n1K7Qba/comments';
+  // Create modal content
 
-    constructor(shows, btn) {
-      [this.show] = shows.moviesarray.filter((show) => show.id === +btn.id);
-      this.GetShow = new GetShow(this.URL);
-      this.commentsArray = [];
-    }
-    // To create template to render the items in the modal
+  // Create elements
+  const divShowModal = document.querySelector('.modal');
 
-    renderMovies() {
-      const html = `
-  <section class="sectionModal">
-  <p class="close">&times</p>
-  <article class="movies">
-  <img class="moviesImg" src="${this.show.image.medium}" />
-  <div class="movieData">
-      <h3 class="moviesName">${this.show.name}</h3>
-      <div class="item1"> </div>
-       <p class="moviesRow"><span></span>${this.show.summary}</p>
-  </div>
-  </article>
-  
-  <div class=commentContainer>
-  <p> Comments (<span class="commentCounter">p</span>)</p>
-  <div class=commentBox> </div>
-  </div>
-  
-  <div class="writeComments">
-  <p class="writeComment">Write Comment</p>
-  <input type="text"  placeholder="Username" class="inputName"></input>
-  <input type="textarea" placeholder="Comment" class="inputComment"></input>
-  <button type="button" class="btn btn_primary btn_movies">Comment</button>
-  </div> 
-  </section>`;
+  const divImgModal = document.createElement('div');
+  const imgClose = document.createElement('img');
+  const imgShowModal = document.createElement('img');
 
-      const commentsPage = document.querySelector('.commentSection');
-      const popUp = commentsPage.querySelector('.sectionModal');
-      popUp.innerHTML = html;
+  const divShowInfo = document.createElement('div');
+  const h3ShowTitle = document.createElement('h3');
+  const pSummary = document.createElement('p');
+  const ulDetails = document.createElement('ul');
+  const liDet1 = document.createElement('li');
+  const liDet2 = document.createElement('li');
 
-      this.getComments();
-    }
+  const divComments = document.createElement('div');
+  const numComments = document.createElement('span');
+  const ulComments = document.createElement('ul');
 
-    // to retrieve comments from api
-getComments = () => {
-  const commentBox = document.querySelector('.commentBox');
-  const commentsCounter = document.querySelector('.commentsCounter');
-  commentBox.innerHTML = '';
+  const divAddComment = document.createElement('div');
+  const inpName = document.createElement('input');
+  const inpComment = document.createElement('input');
+  const btnComment = document.createElement('button');
 
-  const response = this.getShows.getRequestOptions(`?item_id=${this.show.id}`);
+  // Add content and atributes
+  divShowModal.classList.add('modal');
 
-  response.then((result) => {
-    if (result.length) {
-      this.commentsArray = result;
+  imgShowModal.src = show.image.medium;
+  imgClose.classList.add('closeModal');
 
-      // to retrive item to comment box
-      this.commentsArray.forEach((comment) => {
-        const html = `
-             <p>
-              <span class="comments-date" >${comment.creation_date} </span>
-              <span class="comments-username"><b>${comment.username}: </b></span>
-              <span>${comment.comment} </span>
-             </p>
-             `;
-        commentBox.innerHTML += `${html}`;
-      });
-    }
-    commentsCounter.innerHTML = `Comments: ${this.calculateCount()}`;
-  }).catch((error) => {
-    throw new Error(error);
-  });
-}
+  // Show image
+  divImgModal.classList.add('imageModal');
+  imgClose.src = cancel;
+  divImgModal.appendChild(imgShowModal);
 
-  sendComment = () => {
-    const userId = document.querySelector('.inputName');
-    const commentUsers = document.querySelector('inputComment');
+  // Show details
+  divShowInfo.classList.add('detailsShow');
+  h3ShowTitle.classList.add('title_show');
+  h3ShowTitle.innerText = show.name;
+  pSummary.classList.add('sumShow');
+  pSummary.innerText = show.summary;
+  ulDetails.classList.add('gridShow');
+  liDet1.classList.add('detDiv');
+  liDet2.classList.add('detDiv');
+  liDet1.innerHTML = `<div><p>Premiered:${show.premiered}</p></div><div><p>Language:${show.language}</p></div>`;
+  liDet2.innerHTML = `<div><p>Ended:${show.ended}</p></div><div><p>Status:${show.status}</p></div>`;
+  ulDetails.appendChild(liDet1);
+  ulDetails.appendChild(liDet2);
+  divShowInfo.appendChild(h3ShowTitle);
+  divShowInfo.appendChild(ulDetails);
 
-    if (userId.value && commentUsers.value) {
-      this.getShows.postRequestWithOptions(this.show.id, userId.value, commentUsers.value)
-        .then(() => {
-          userId.value = '';
-
-          commentUsers.value = '';
-
-          this.getComments();
-        });
-    }
-  }
-
-  // to add counter to comment
-  calculateCount = () => this.commentsArray.length
-}
-
-const commentPopupEvent = () => {
-  const allCommentButtons = document.querySelectorAll('.btn');
-
-  allCommentButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const commentModal1 = document.querySelector('.btn');
-      commentModal1.renderMovies();
-
-      const addComment = document.querySelector('.btn_movies');
-      addComment.addEventListener('click', () => {
-        const commentModal1 = document.querySelector('btn_movies');
-        commentModal1.sendComment();
-      });
+  // Show comments
+  divComments.classList.add('comments_show');
+  numComments.classList.add('num_likes');
+  const comments = await getComments(id);
+  if (comments.length > 0) {
+    numComments.innerText = `Comments (${comments.length})`;
+    ulComments.classList.add('commentsList');
+    comments.forEach((e) => {
+      const liComment = document.createElement('li');
+      liComment.classList.add('itemComment');
+      liComment.innerText = `${e.creation_date} ${e.username}: ${e.comment}`;
+      ulComments.appendChild(liComment);
     });
+  } else {
+    numComments.innerText = 'Comments (0)';
+  }
+  divComments.appendChild(numComments);
+  divComments.appendChild(ulComments);
+
+  // Add comments
+  divAddComment.classList.add('writeComments');
+  inpName.classList.add('inputName');
+  inpName.placeholder = 'Username';
+  inpName.type = 'text';
+  inpComment.classList.add('inputComment');
+  inpComment.placeholder = 'Comment';
+  inpName.type = 'textarea';
+  btnComment.classList.add('btn_show');
+  btnComment.type = 'button';
+  btnComment.textContent = 'Comment';
+  divAddComment.appendChild(inpName);
+  divAddComment.appendChild(inpComment);
+  divAddComment.appendChild(btnComment);
+
+  divShowModal.appendChild(imgClose);
+  divShowModal.appendChild(divImgModal);
+  divShowModal.appendChild(divShowInfo);
+  divShowModal.appendChild(divComments);
+  divShowModal.appendChild(divAddComment);
+
+  /// ADD EVENTS LISTENERS
+
+  // Get the dom element to the modal
+  const commentsPage = document.querySelector('.commentSection');
+  // Add the content
+  commentsPage.appendChild(divShowModal);
+  // Show the modal
+  commentsPage.classList.add('showUp');
+  window.onclick = (event) => {
+    if (event.target === commentsPage) {
+      commentsPage.classList.remove('showUp');
+    }
+  };
+
+  imgClose.addEventListener('click', () => {
+    commentsPage.classList.remove('showUp');
   });
-  setTimeout(commentPopupEvent, 15);
+
+  btnComment.addEventListener('click', async () => {
+    const name = document.querySelector('.inputName').value;
+    const comment = document.querySelector('.inputComment').value;
+    if (name !== '' && comment !== '') {
+      await postComment(id, name, comment);
+      cleanElement('.commentsList');
+      const itemComments = await getComments(id);
+      numComments.innerText = `Comments (${itemComments.length})`;
+      for (let i = 0; i < itemComments.length; i += 1) {
+        const ul = document.querySelector('.commentsList');
+        const e = itemComments[i];
+        const li = document.createElement('li');
+        li.innerText = `${e.creation_date} ${e.username}: ${e.comment}`;
+        ul.appendChild(li);
+      }
+    }
+  });
 };
 
-commentPopupEvent();
-
-export default commentsPage;
+export default renderModal;

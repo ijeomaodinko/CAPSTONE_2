@@ -1,6 +1,8 @@
 // Import icon
 import like from '../like.png';
 import postLike from './postLike.js';
+import renderModal from './addPopup.js';
+import cleanElement from './cleanElement.js';
 
 // Function to create a div with show information
 const createItem = (show, likes) => {
@@ -51,10 +53,18 @@ const createItem = (show, likes) => {
   divButtons.appendChild(btnReserve);
 
   /// ADD EVENTS LISTENERS
+
+  // Add new likes
   imgLike.addEventListener('click', async () => {
     postLike(show.id);
     const likes = parseInt(numLikes.textContent, 10) + 1;
     numLikes.textContent = likes;
+  });
+
+  // Show modal
+  btnComments.addEventListener('click', () => {
+    cleanElement('.modal');
+    renderModal(show.id);
   });
 
   // Add child
