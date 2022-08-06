@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Lobster&family=Press+Start+2P&family=Rokkitt:wght@100;300;400;500;600;700;800;900&display=swap");
+
+/* CSS variables */
+:root {
+  --white-color: rgb(255, 255, 255);
+  --black-color: rgb(0, 0, 0);
+  --blue-color: rgba(20, 5, 226);
+  --red-munsell: rgb(255, 0, 55);
+  --robin-egg-blue: rgb(0, 206, 200);
+  --fuchsia-crayola: rgb(172, 90, 184);
+  --chrome-yellow: rgb(255, 170, 0);
+  --camel: rgb(200, 160, 90);
+  --font-title: "Lobster", cursive;
+  --font-text: "Rokkitt", serif;
+  --font-button: "Audiowide", cursive;
+}
+
+/* General css */
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--white-color);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: var(--black-color);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin-top: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+}
+
+/* Header */
+header {
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--black-color);
+}
+
+#nav-bar {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-items: flex-end;
+  gap: 2rem;
+  margin: 0;
+}
+
+.links {
+  font-family: var(--font-button);
+  font-size: 1.3rem;
+}
+
+#logo {
+  color: var(--white-color);
+  font-size: 2.5rem;
+  font-family: var(--font-title);
+  margin-right: 4rem;
+}
+
+#link_shows {
+  color: var(--red-munsell);
+}
+
+#link_artists {
+  color: var(--robin-egg-blue);
+}
+
+#link_dates {
+  color: var(--camel);
+}
+
+/* Main content */
+#items_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.1rem;
+  border: 0.1rem outset var(--white-color);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.info_show {
+  text-align: center;
+}
+
+.title_show {
+  color: var(--blue-color);
+}
+
+.likes_show {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.num_likes {
+  color: var(--red-munsell);
+  font-weight: bold;
+}
+
+.btn_show {
+  cursor: pointer;
+  font-family: var(--font-button);
+  text-align: center;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--red-munsell);
+  color: var(--white-color);
+}
+
+.btn_show:hover {
+  border: 0.3rem solid var(--red-munsell);
+  background-color: var(--white-color);
+  color: var(--red-munsell);
+}
+
+.buttons_show {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.sectionModel {
+  display: flex;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.commentSection {
+  background-color: rgba(26, 34, 54, 0.95);
+  align-items: center;
+  justify-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: none;
+}
+
+.showUp {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  width: 35%;
+  border-radius: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.1rem;
+  padding: 1rem;
+}
+
+.closeModal {
+  height: 2rem;
+  width: 2rem;
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+
+.imageModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.detailsShow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 0.1rem;
+}
+
+.gridShow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 0.1rem;
+  width: 100%;
+  gap: 0.3rem;
+}
+
+.detDiv {
+  align-items: center;
+  justify-items: center;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
+.sumShow {
+  text-align: justify;
+  font-size: small;
+}
+
+.comments_show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 0.1rem;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.1rem;
+  padding: 0.1rem;
+}
+
+.commentsList li {
+  border: none;
+  align-items: flex-start;
+}
+
+.writeComments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.btn_movies {
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #ff0045ff;
+  cursor: pointer;
+  width: 60%;
+}
+
+.footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--red-munsell);
+  color: white;
+  text-align: center;
+}
+
+.itotal {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+}
