@@ -115,6 +115,7 @@ const renderModal = async (id) => {
       await postComment(id, name, comment);
       cleanElement('.commentsList');
       const itemComments = await getComments(id);
+      numComments.innerText = `Comments (${itemComments.length})`;
       for (let i = 0; i < itemComments.length; i += 1) {
         const ul = document.querySelector('.commentsList');
         const e = itemComments[i];
